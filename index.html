@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MATH METHODS</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* Custom styles to ensure the result text is visible */
+        #result1 {
+            background-color: #f8f9fa; /* Light background */
+            color: #333; /* Dark text color */
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 1.2em; /* Slightly larger text */
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+		<h1>Math Methods</h1>
+		<details ontoggle="message1()">
+			<summary>
+				<u>Instructions</u>
+				<br>
+				<i id="message"> </i>
+			</summary>
+		</details>
+	</div>
+
+	<div class="container">
+		<!-- Input field for any number -->
+		<input type="number" class="form-control" id="num1" placeholder="Enter a number" />
+		<button type="button" class="btn btn-primary" onclick="performMathOperations()">Perform Operations</button>
+		<kbd id="result1">Results will appear here...</kbd>
+	</div>
+
+	<script>
+		// Display instructions when the details section is opened
+		function message1() {
+			document.getElementById("message").innerHTML = "Input a number and click the button below to perform math operations.";
+		}
+
+		// Function to perform various math operations and display results
+		function performMathOperations() {
+			var sapphire = document.getElementById("num1").value;
+
+			if (sapphire === "" || isNaN(sapphire)) {
+				document.getElementById("result1").innerHTML = "Please enter a valid number!";
+				return;
+			}
+
+			// Perform the math operations
+			var number = parseFloat(sapphire);
+			var resultText = '';
+
+			// Display the results of each Math operation
+			resultText = "<strong>Math Operations:</strong><br><br>";
+			resultText += "<p><strong>Math.round(x): </strong>" + Math.round(number) + "</p>";
+			resultText += "<p><strong>Math.pow(x, 2): </strong>" + Math.pow(number, 2) + "</p>";
+			resultText += "<p><strong>Math.sqrt(x): </strong>" + Math.sqrt(number) + "</p>";
+			resultText += "<p><strong>Math.abs(x): </strong>" + Math.abs(number) + "</p>";
+			resultText += "<p><strong>Math.min(x, 10): </strong>" + Math.min(number, 10) + "</p>";
+			resultText += "<p><strong>Math.max(x, 10): </strong>" + Math.max(number, 10) + "</p>";
+			resultText += "<p><strong>Math.random() * x: </strong>" + (Math.random() * number).toFixed(2) + "</p>";
+
+			// Update the content of the result area
+			document.getElementById("result1").innerHTML = resultText;
+		}
+	</script>
+
+</body>
+</html>
